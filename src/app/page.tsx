@@ -94,7 +94,7 @@ export default function Home() {
           </label>
         </p>
         <ReCAPTCHA
-          sitekey={process.env.RECAPTCHA_SITE_KEY! as string}
+          sitekey={(process.env.RECAPTCHA_SITE_KEY! as string) || ""}
           onChange={onChange}
         />
         <p>
