@@ -60,7 +60,6 @@ export default function Home() {
           </label>
         </p>
         <div data-netlify-recaptcha="true"></div>
-
         <p>
           <button className="border-solid border-2 border-black " type="submit">
             Send
