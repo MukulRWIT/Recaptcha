@@ -19,13 +19,14 @@ export default function Home() {
 
     const myForm = event.target;
     const formData = new FormData(myForm);
+    console.log(formData);
+    // formData["g-recaptcha-response"] = captchaValue;
 
     fetch("/__form.html", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams({
         ...formData,
-        captcha: captchaValue,
       } as any).toString(),
     })
       .then(() => console.log("Form successfully submitted"))
