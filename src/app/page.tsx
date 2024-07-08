@@ -72,7 +72,7 @@ export default function Home() {
         <ReCAPTCHA
           ref={recaptchaRef}
           size="invisible"
-          sitekey={siteKey}
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY! as string}
           onChange={onChange}
           asyncScriptOnLoad={asyncScriptOnLoad}
         />
