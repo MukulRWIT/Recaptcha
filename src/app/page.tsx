@@ -35,7 +35,7 @@ const Firstform = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      const res = await fetch("/__forms.html", {
+      const res = await fetch("/__form.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData as any).toString(),
