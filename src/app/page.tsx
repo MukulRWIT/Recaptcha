@@ -21,7 +21,6 @@ export default function Home() {
         className="send_form flex flex-col gap-2 items-center justify-center h-[100vh]"
         name="contact"
         method="POST"
-        data-netlify="true"
         onSubmit={handleSubmit}
       >
         <input type="hidden" name="form-name" value="contact" />
