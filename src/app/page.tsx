@@ -16,15 +16,20 @@ export default function Home() {
   };
 
   return (
-    <main className="">
+    <main className="flex flex-col gap-10 items-center justify-center h-[100vh]">
+      <h1 className="text-2xl ">FORM</h1>
       <form
-        className="send_form flex flex-col gap-2 items-center justify-center h-[100vh]"
+        className="send_form flex flex-col gap-2 items-center justify-center "
         name="contact"
         method="POST"
         onSubmit={handleSubmit}
       >
         <input type="hidden" name="form-name" value="contact" />
-
+        <p className="hidden">
+          <label>
+            Don’t fill this out if you’re human: <input name="bot-field" />
+          </label>
+        </p>
         <p>
           <label>
             Your Name:{" "}
