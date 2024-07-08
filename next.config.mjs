@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    RECAPTCHA_SITE_KEY: "6LeMyQoqAAAAAE3L5J7MbHPyVIjfKOuy_equUqBJ",
-    SITE_RECAPTCHA_SECRET: "6LeMyQoqAAAAABV1tuZyL3hXjIe2BU9yve-AjN5z",
+    RECAPTCHA_SITE_KEY: process.env.RECAPTCHA_SITE_KEY,
+    SITE_RECAPTCHA_SECRET: process.env.SITE_RECAPTCHA_SECRET,
   },
 };
 
