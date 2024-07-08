@@ -29,7 +29,7 @@ export default function Home() {
     event.preventDefault();
 
     try {
-      const res = await fetch("/__forms.html", {
+      const res = await fetch("/__form.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formCap as any).toString(),
