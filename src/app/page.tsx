@@ -1,5 +1,15 @@
 "use client";
+
+import React, { createRef } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+
 export default function Home() {
+  const recaptchaRef: any = createRef();
+  const siteKey: string = process.env.SITE_RECAPTCHA_KEY?.toString() as string;
+  const onChange = () => {};
+  const asyncScriptOnLoad = () => {
+    console.log("Google recaptcha loaded just fine");
+  };
   const handleSubmit = (event: any) => {
     event.preventDefault();
 
@@ -59,6 +69,13 @@ export default function Home() {
             ></textarea>
           </label>
         </p>
+        <ReCAPTCHA
+          ref={recaptchaRef}
+          size="invisible"
+          sitekey={siteKey}
+          onChange={onChange}
+          asyncScriptOnLoad={asyncScriptOnLoad}
+        />
         <p>
           <button className="border-solid border-2 border-black " type="submit">
             Send
