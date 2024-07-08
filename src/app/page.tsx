@@ -1,12 +1,15 @@
 "use client";
 
-import React, { createRef } from "react";
+import React, { createRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Home() {
   const recaptchaRef: any = createRef();
   const siteKey: string = process.env.SITE_RECAPTCHA_KEY?.toString() as string;
-  const onChange = () => {};
+  const [captchaValue, setCaptchaValue] = useState(null);
+  const onChange = (val: any) => {
+    setCaptchaValue(val);
+  };
   const asyncScriptOnLoad = () => {
     console.log("Google recaptcha loaded just fine");
   };
@@ -19,7 +22,10 @@ export default function Home() {
     fetch("/__form.html", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData as any).toString(),
+      body: new URLSearchParams({
+        ...formData,
+        captcha: captchaValue,
+      } as any).toString(),
     })
       .then(() => console.log("Form successfully submitted"))
       .catch((error) => alert(error));
