@@ -8,6 +8,7 @@ export default function Home() {
   const siteKey: string = process.env.SITE_RECAPTCHA_KEY?.toString() as string;
   const [captchaValue, setCaptchaValue] = useState(null);
   const onChange = (val: any) => {
+    console.log(val);
     setCaptchaValue(val);
   };
   const asyncScriptOnLoad = () => {
