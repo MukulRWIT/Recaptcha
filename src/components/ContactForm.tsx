@@ -16,7 +16,6 @@ const ContactForm = () => {
     phone: "",
     message: "",
     "form-name": "contact",
-    "g-captcha-response": recaptchaValue,
   } as Record<string, string>;
 
   const formik = useFormik({
@@ -52,7 +51,7 @@ const ContactForm = () => {
         const res = await fetch("/__formContact.html", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams(formCap as any).toString(),
+          body: new URLSearchParams(values as any).toString(),
         });
         if (res.status === 200) {
           alert("Submit");
@@ -118,7 +117,7 @@ const ContactForm = () => {
   return (
     <>
       <section>
-        <div className="container 2xl:mb-[70px] xl:mb-14 lg:mb-12 md:mb-10 mb-8">
+        <div className="container mx-auto 2xl:mb-[70px] xl:mb-14 lg:mb-12 md:mb-10 mb-8">
           <form
             name="contact_as"
             className="bg-pink-100 3xl:p-[120px] 2xl:p-24 xl:p-16 lg:p-12 py-10 md:px-8 px-4 rounded-2xl overflow-hidden relative z-0"
@@ -222,7 +221,7 @@ const ContactForm = () => {
                     )}
                   </div>
 
-                  <ReCAPTCHA sitekey={sitekey} onChange={onCaptchaChange} />
+                  {/* <ReCAPTCHA sitekey={sitekey} onChange={onCaptchaChange} /> */}
                   <div>
                     <button
                       type="submit"
