@@ -7,7 +7,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 const ContactForm = () => {
   const recaptcha = useRef<ReCAPTCHA>(null);
   const [recaptchaValue, setRecaptchaValue] = useState<string>("");
-  const sitekey: string = process.env.SITE_RECAPTCHA_KEY || " ";
+  const sitekey: string = process.env.RECAPTCHA_SITE_KEY || " ";
   const [isLoader, SetisLoader] = useState<boolean>(false);
   const [isfocus, setisfocus] = useState<boolean>(false);
   const router = useRouter();
