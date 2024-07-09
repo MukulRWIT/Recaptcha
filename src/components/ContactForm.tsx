@@ -17,7 +17,7 @@ const ContactForm = () => {
     phone: "",
     message: "",
     "form-name": "contact_as",
-    "g-captcha-response": recaptchaValue,
+    "g-recaptcha-response": recaptchaValue,
   } as Record<string, string>;
 
   const formik = useFormik({
@@ -48,7 +48,7 @@ const ContactForm = () => {
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       if (recaptchaValue) {
         setIsLoader(true);
-        const formCap = { ...values, "g-captcha-response": recaptchaValue };
+        const formCap = { ...values, "g-recaptcha-response": recaptchaValue };
 
         try {
           const res = await fetch("/__formContact.html", {
