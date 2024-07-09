@@ -50,7 +50,6 @@ const ContactForm = () => {
       if (recaptchaValue) {
         const formCap = { ...values, "g-captcha-response": recaptchaValue };
 
-        try {
           const res = await fetch("/__formContact.html", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -61,9 +60,6 @@ const ContactForm = () => {
           } else {
             alert("Error");
           }
-        } catch (e) {
-          alert("Request failed");
-        }
         //   if (!recaptchaValue) {
         //     alert("Select captcha");
         //     return;
