@@ -46,41 +46,43 @@ const ContactForm = () => {
       return errors;
     },
     onSubmit: async (values, { setSubmitting, resetForm }) => {
-      if (!recaptchaValue) {
-        alert("Select captcha");
-        return;
-      }
-      SetisLoader(true);
-      try {
-        // values['form-name'] = 'contact';
-        // values['g-recaptcha-response'] = recaptchaValue;
-        // values['data-sitekey'] = sitekey;
-        const formData = { ...values, "g-captcha-response": recaptchaValue };
-        console.log(formData);
-        const response = await fetch("/__formContact.html", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams(formData).toString(),
-          // body: encode({
-          //   'form-name': 'contact',
-          //   ...values,
-          //   'g-recaptcha-response': recaptchaValue,
-          // }),
-        });
+      console.log({ ...values, "g-captcha-response": recaptchaValue });
+      //   if (!recaptchaValue) {
+      //     alert("Select captcha");
+      //     return;
+      //   }
+      //   SetisLoader(true);
+      //   try {
+      //     // values['form-name'] = 'contact';
+      //     // values['g-recaptcha-response'] = recaptchaValue;
+      //     // values['data-sitekey'] = sitekey;
+      //     const formData = { ...values, "g-captcha-response": recaptchaValue };
+      //     console.log(formData);
+      //     const response = await fetch("/__formContact.html", {
+      //       method: "POST",
+      //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      //       body: new URLSearchParams(formData).toString(),
+      //       // body: encode({
+      //       //   'form-name': 'contact',
+      //       //   ...values,
+      //       //   'g-recaptcha-response': recaptchaValue,
+      //       // }),
+      //     });
 
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        setSubmitting(false);
-        // router.push('/thank-you');
-
-        resetForm();
-      } catch (error: any) {
-        setSubmitting(false);
-        console.log("Error submitting form: " + error.message);
-      } finally {
-        SetisLoader(false);
-      }
+      //     if (!response.ok) {
+      //       throw new Error("Network response was not ok");
+      //     }
+      //     setSubmitting(false);
+      //     // router.push('/thank-you');
+      //     alert("submit");
+      //     resetForm();
+      //   } catch (error: any) {
+      //     alert(error);
+      //     setSubmitting(false);
+      //     console.log("Error submitting form: " + error.message);
+      //   } finally {
+      //     SetisLoader(false);
+      //   }
     },
   });
 
