@@ -171,6 +171,7 @@ const ContactForm = () => {
                           : ""
                       }`}
                       name={"phone"}
+                      placeholder="enter number"
                       value={formik.values["phone"]}
                       onChange={(e) =>
                         formik.setFieldValue("phone", e.target.value)
