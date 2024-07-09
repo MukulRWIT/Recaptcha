@@ -13,9 +13,11 @@ const ContactForm = () => {
   const router = useRouter();
   const initialValues = {
     name: "",
+    email: "",
     phone: "",
     message: "",
-    "form-name": "contact",
+    "form-name": "contact_as",
+    // "g-captcha-response": recaptchaValue,
   } as Record<string, string>;
 
   const formik = useFormik({
