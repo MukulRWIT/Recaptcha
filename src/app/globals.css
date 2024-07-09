@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+input, textarea{
+    @apply rounded-md px-3 py-1 border-2 border-indigo-500 focus:outline-indigo-800;
+}
+button {
+    @apply px-3 py-1 bg-indigo-500 text-white;
+}
