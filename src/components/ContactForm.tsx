@@ -17,7 +17,7 @@ const ContactForm = () => {
     phone: "",
     message: "",
     "form-name": "contact_as",
-    // "g-captcha-response": recaptchaValue,
+    "g-captcha-response": recaptchaValue,
   } as Record<string, string>;
 
   const formik = useFormik({
@@ -53,7 +53,7 @@ const ContactForm = () => {
         const res = await fetch("/__formContact.html", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams(values as any).toString(),
+          body: new URLSearchParams(formCap as any).toString(),
         });
         if (res.status === 200) {
           alert("Submit");
@@ -223,7 +223,7 @@ const ContactForm = () => {
                     )}
                   </div>
 
-                  {/* <ReCAPTCHA sitekey={sitekey} onChange={onCaptchaChange} /> */}
+                  <ReCAPTCHA sitekey={sitekey} onChange={onCaptchaChange} />
                   <div>
                     <button
                       type="submit"
