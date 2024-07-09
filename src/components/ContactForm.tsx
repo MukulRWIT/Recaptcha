@@ -47,74 +47,76 @@ const ContactForm = () => {
       return errors;
     },
     onSubmit: async (values, { setSubmitting, resetForm }) => {
-      const formCap = { ...values, "g-captcha-response": recaptchaValue };
+      if (recaptchaValue) {
+        const formCap = { ...values, "g-captcha-response": recaptchaValue };
 
-      try {
-        const res = await fetch("/__formContact.html", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams(formCap as any).toString(),
-        });
-        if (res.status === 200) {
-          alert("Submit");
-        } else {
-          alert("Error");
+        try {
+          const res = await fetch("/__formContact.html", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formCap as any).toString(),
+          });
+          if (res.status === 200) {
+            alert("Submit");
+          } else {
+            alert("Error");
+          }
+        } catch (e) {
+          alert("Request failed");
         }
-      } catch (e) {
-        alert("Request failed");
-      }
-      //   if (!recaptchaValue) {
-      //     alert("Select captcha");
-      //     return;
-      //   }
-      //   SetisLoader(true);
-      //   try {
-      //     // values['form-name'] = 'contact';
-      //     // values['g-recaptcha-response'] = recaptchaValue;
-      //     // values['data-sitekey'] = sitekey;
-      //     const formData = { ...values, "g-captcha-response": recaptchaValue };
-      //     console.log(formData);
-      //     const response = await fetch("/__formContact.html", {
-      //       method: "POST",
-      //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      //       body: new URLSearchParams(formData).toString(),
-      //       // body: encode({
-      //       //   'form-name': 'contact',
-      //       //   ...values,
-      //       //   'g-recaptcha-response': recaptchaValue,
-      //       // }),
-      //     });
+        //   if (!recaptchaValue) {
+        //     alert("Select captcha");
+        //     return;
+        //   }
+        //   SetisLoader(true);
+        //   try {
+        //     // values['form-name'] = 'contact';
+        //     // values['g-recaptcha-response'] = recaptchaValue;
+        //     // values['data-sitekey'] = sitekey;
+        //     const formData = { ...values, "g-captcha-response": recaptchaValue };
+        //     console.log(formData);
+        //     const response = await fetch("/__formContact.html", {
+        //       method: "POST",
+        //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        //       body: new URLSearchParams(formData).toString(),
+        //       // body: encode({
+        //       //   'form-name': 'contact',
+        //       //   ...values,
+        //       //   'g-recaptcha-response': recaptchaValue,
+        //       // }),
+        //     });
 
-      //     if (!response.ok) {
-      //       throw new Error("Network response was not ok");
-      //     }
-      //     setSubmitting(false);
-      //     // router.push('/thank-you');
-      //     alert("submit");
-      //     resetForm();
-      //   } catch (error: any) {
-      //     alert(error);
-      //     setSubmitting(false);
-      //     console.log("Error submitting form: " + error.message);
-      //   } finally {
-      //     SetisLoader(false);
-      //   }
+        //     if (!response.ok) {
+        //       throw new Error("Network response was not ok");
+        //     }
+        //     setSubmitting(false);
+        //     // router.push('/thank-you');
+        //     alert("submit");
+        //     resetForm();
+        //   } catch (error: any) {
+        //     alert(error);
+        //     setSubmitting(false);
+        //     console.log("Error submitting form: " + error.message);
+        //   } finally {
+        //     SetisLoader(false);
+        //   }
+      }
     },
   });
 
   const encode = (data: any) => {
     return Object.keys(data)
-      .map(
+    .map(
         (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
       )
       .join("&");
-  };
-
-  const onCaptchaChange = (token: string | null) => {
+    };
+    
+    const onCaptchaChange = (token: string | null) => {
     if (token) {
       setRecaptchaValue(token);
     }
-  };
+};
 
   return (
     <>
