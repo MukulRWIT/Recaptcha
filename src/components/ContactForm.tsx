@@ -124,13 +124,12 @@ const ContactForm = () => {
             name="contact_as"
             className="bg-pink-100 3xl:p-[120px] 2xl:p-24 xl:p-16 lg:p-12 py-10 md:px-8 px-4 rounded-2xl overflow-hidden relative z-0"
             onSubmit={formik.handleSubmit}
-            action={"/thank-you"}
           >
             <input type="hidden" name="form-name" value="contact" />
-            <label hidden htmlFor="bot-field">
+            {/* <label hidden htmlFor="bot-field">
               Don&apos;t fill this out if you&apos;re human:
               <input name="bot-field" />
-            </label>
+            </label> */}
             <div className="max-w-[1120px] mx-auto">
               <div className="grid lg:grid-cols-2 lg:gap-7 gap-6">
                 <div className="flex flex-col gap-7">
