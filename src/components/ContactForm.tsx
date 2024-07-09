@@ -60,7 +60,7 @@ const ContactForm = () => {
           if (res.status === 200) {
             alert("Submit");
             resetForm();
-            router.push('/thank-you'); // Redirect to thank you page
+            router.push('/thank'); 
           } else {
             alert("Error");
           }
