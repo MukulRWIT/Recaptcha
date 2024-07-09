@@ -46,7 +46,22 @@ const ContactForm = () => {
       return errors;
     },
     onSubmit: async (values, { setSubmitting, resetForm }) => {
-      console.log({ ...values, "g-captcha-response": recaptchaValue });
+      const formCap = { ...values, "g-captcha-response": recaptchaValue };
+
+      try {
+        const res = await fetch("/__formContact.html", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formCap as any).toString(),
+        });
+        if (res.status === 200) {
+          alert("Submit");
+        } else {
+          alert("Error");
+        }
+      } catch (e) {
+        alert("Request failed");
+      }
       //   if (!recaptchaValue) {
       //     alert("Select captcha");
       //     return;
