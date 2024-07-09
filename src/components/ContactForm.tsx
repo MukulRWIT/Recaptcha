@@ -172,8 +172,8 @@ const ContactForm = () => {
                       }`}
                       name={"phone"}
                       value={formik.values["phone"]}
-                      onChange={(phone: any) =>
-                        formik.setFieldValue("phone", phone)
+                      onChange={(e) =>
+                        formik.setFieldValue("phone", e.target.value)
                       }
                       onBlur={(e) => formik.handleBlur(e)}
                     />
